@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import cross_val_score
 
 """
 Method that returns a dataframe of each March Madness Tournament team from 2013-2025 and how they perform in certain team statistics.
@@ -101,8 +103,36 @@ def historical_matchups():
     # Data Cleaning: removing redundant/useless information:
     matchups = matchups.drop(columns = ['TEAM NO_x', 'TEAM_x', 'SEED_x', 'SCORE_x', 'YEAR_y', 'TEAM NO_y', 'TEAM_y',	'SEED_y', 'SCORE_y']) 
     matchups = matchups.rename(columns = {'YEAR_x': 'YEAR'}) # only one year
+
+    train_WL = matchups['BST_Won'] # train df's future label column
     
     return matchups
+
+"""
+Method that returns the dataframe we will be using to train
+"""
+def difference_features():
+
+    train_diff = []
+
+    for _, team in matchups.iterrows():
+        better_seeded_team_number = team['BST_NO']
+        worse_seeded_team_number = team['WST_NO']
+    
+        # Calculate the difference in features
+        better_seeded_team_stats = mm_team_features.loc[better_seeded_team_number]
+        worse_seeded_team_stats = mm_team_features.loc[worse_seeded_team_number]
+    
+        # note: no need to flip signs --> model learns on its own
+        diff_feature = better_seeded_team_stats - worse_seeded_team_stats # + means advantage for better seeded team; - means advantage for lower seeded team
+        train_diff.append(diff_feature.to_list())
+
+        # train df's future feature columns
+        train_cols = [x + "_DIFF" for x in mm_team_features.columns.to_list()]
+        train = pd.DataFrame(train_diff, columns = train_cols)
+        train['BST_Won'] = train_WL
+
+    return train
     
 
 
