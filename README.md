@@ -11,14 +11,16 @@ Use historical team-based statistics to build a model that predicts the outcome 
 - Merging datasets using a team-season identifier
 - Preparing features for matchup-based modeling
 - Construct matchup dataset (team A vs team B) --> create difference vector to train on
-- Trained Logistic Regression
-
+- Trained models (LogisticRegression, Random Forest, XGBoost) to further enhance feature selection for final model 
+  
 ## Data Sources
 Datasets currently used include:
 - BartTorvik, EvanMiya, KenPom advanced team statistics
 - Shooting split statistics
 - Additional efficiency metrics + ranking systems
+- used some AI for statistical modeling background info
 
 ## Next Steps
-- Train baseline models (Random Forest, XGBoost) to further enhance feature selection for final model 
-- Evaluate model performance after the tournament begins using number of games correctly predicted & Brier Score 
+- Evaluate model performance after the tournament begins using number of games correctly predicted & Brier Score
+- Format/Refactor
+- Update directory with final bracket (tree) 
