@@ -2,6 +2,9 @@
 
 Machine learning pipeline to predict NCAA March Madness game outcomes for the 2025-26 Season Tournament.
 
+## Authors
+Ayaan Nihal
+
 ## Goal
 Use historical team-based statistics to build a model that predicts the outcome of all possible games. Primary evaluation done with Brier Score*. <br><br>
 <i>The Brier score is calculated as the average of the squared differences between the predicted probabilities and the actual outcomes (where outcomes are 0 or 1).*</i>
