@@ -2,8 +2,8 @@
 
 Machine learning pipeline to predict NCAA March Madness game outcomes for the 2025-26 Season Tournament.
 
-## Authors
-Ayaan Nihal
+## Author
+Ayaan Nihal (anihal@wisc.edu)
 
 ## Goal
 Use historical team-based statistics to build a model that predicts the outcome of all possible games. Primary evaluation done with Brier Score*. <br><br>
