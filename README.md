@@ -17,11 +17,13 @@ Use historical team-based statistics to build a model that predicts the outcome 
 - Constructed matchup dataset (team A vs team B) --> created difference vector to train on
 - Trained models (LogisticRegression, Random Forest, XGBoost) to further enhance feature selection for final model
 - Retrained model on all historical data from 2013-25 (RandomForest) and predicted matchups for all potential 2026 March Madness games
-- Evaluated model performance after the tournament using the Brier Score (& numer of games correctly predicted)
+- Evaluated model performance after the tournament using the Brier Score (& number of games correctly predicted)
 - Updated directory with final bracket (tree) using both March Madness Tournament Challenge & Per-Game statistics
 
-## Results
-- <a href = "Results/README.md">Achieved a Brier Score of 0.1654</a>
+## <a href = "Results/README.md">Results</a>
+- Achieved a Brier Score of 0.1654
+- 47/63 games correctly predicted (74.6% accuracy)
+<img src = "Results/PerGame(Actual).png">
   
 ## Data Sources
 Datasets used from [Nishaan Amin](https://www.kaggle.com/datasets/nishaanamin/march-madness-data/data):
